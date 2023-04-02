@@ -24,8 +24,10 @@ class WordFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var getChar = arguments?.getString("data")
+        println(getChar)
 
-        if (getChar == "A"){
+
+        if (getChar === "A"){
             var listWordData = arrayListOf(
                 ListWord("Api"),
                 ListWord("Air"),
@@ -33,15 +35,17 @@ class WordFragment : Fragment() {
             )
 
             var wordAdapter = WordAdapter(listWordData)
+            val lmWord = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             binding.rvWord.adapter = wordAdapter
+            binding.rvWord.layoutManager = lmWord
+
             wordAdapter.onClick = {
                 var bundle = Bundle()
                 bundle.putString("data", it.word)
             }
         }
 
-        val lmWord = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.rvWord.layoutManager = lmWord
+
     }
 
 

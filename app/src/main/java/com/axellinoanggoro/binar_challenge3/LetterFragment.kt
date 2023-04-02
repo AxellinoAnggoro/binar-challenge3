@@ -48,7 +48,7 @@ class LetterFragment : Fragment() {
 
         letterAdapter.onClick = {
             var bundle = Bundle()
-            bundle.putString("data", it)
+            bundle.putString("data", it.toString())
             findNavController().navigate(R.id.action_letterFragment_to_wordFragment, bundle)
         }
     }
